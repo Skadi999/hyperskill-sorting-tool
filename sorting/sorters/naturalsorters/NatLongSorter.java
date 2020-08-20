@@ -4,14 +4,12 @@ import sorting.sorters.Sorter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class NatLongSorter extends Sorter {
+public class NatLongSorter extends Sorter{
     List<Long> numbers;
 
     public NatLongSorter() {
@@ -22,8 +20,7 @@ public class NatLongSorter extends Sorter {
     public void read() {
         while (scanner.hasNext()) {
             count++;
-            String element = scanner.next();
-            add(element);
+            add(scanner.next());
         }
     }
 
@@ -32,15 +29,14 @@ public class NatLongSorter extends Sorter {
         File file = new File(filePath);
         try (Scanner fileReader = new Scanner(file)) {
             while (fileReader.hasNext()) {
-                String element = fileReader.next();
-                add(element);
+                add(fileReader.next());
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void add(String element) {
+    private void add(String element) {
         try {
             Long longElem = Long.parseLong(element);
             numbers.add(longElem);
